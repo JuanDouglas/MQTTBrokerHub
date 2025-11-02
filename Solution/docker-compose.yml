@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mqtt-gateway.server:
+    image: ${DOCKER_REGISTRY-}mqtt-gateway.server
+    build:
+      context: .
+      dockerfile: MqttGateway.Server/Dockerfile
+    depends_on:
+      - mqtt-broker
+
+  mqtt-broker:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto_broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883"

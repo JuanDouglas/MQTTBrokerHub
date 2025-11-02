@@ -416,3 +416,26 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# MQTT Broker specific
+Solution/mosquitto/data/*
+Solution/mosquitto/log/*
+!Solution/mosquitto/data/.gitkeep
+!Solution/mosquitto/log/.gitkeep
+
+# Environment specific configuration
+**/appsettings.Local.json
+**/appsettings.Production.json
+
+# Docker volumes
+docker-compose.override.local.yml
+
+# Test results and coverage
+**/TestResults/
+**/coverage.*.xml
+**/*.trx
+**/*.coverage
+**/*.coveragexml
+
+# Test server temporary files
+**/test-mqtt-server-*
